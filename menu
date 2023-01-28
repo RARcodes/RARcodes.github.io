@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Snowflakes on Black Background</title>
+  <style>
+    body {
+      background-color: black;
+    }
+    .snowflake {
+      position: absolute;
+      top: -50px;
+      left: -50px;
+      width: 100px;
+      height: 100px;
+      background-image: url("snowflake.png");
+    }
+  </style>
+</head>
+<body>
+  <div class="snowflake"></div>
+  <div class="snowflake"></div>
+  <div class="snowflake"></div>
+  <script>
+    var snowflakes = document.querySelectorAll(".snowflake");
+    var maxX = window.innerWidth - 100;
+    var maxY = window.innerHeight - 100;
+    function animate() {
+      snowflakes.forEach(function(snowflake) {
+        var x = Math.floor(Math.random() * maxX);
+        var y = Math.floor(Math.random() * maxY);
+        snowflake.style.left = x + "px";
+        snowflake.style.top = y + "px";
+      });
+      requestAnimationFrame(animate);
+    }
+    animate();
+  </script>
+</body>
+</html>
